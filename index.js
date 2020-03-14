@@ -11,7 +11,7 @@ app.use(passport.initialize());
 // set up view engine
 app.set('view engine', 'ejs');
 
-// set up cookie-session
+//Pt6. 2.) set up cookie-session
 app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
     keys: [keys.session.cookieKey]
