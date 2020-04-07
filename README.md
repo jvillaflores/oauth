@@ -1,4 +1,4 @@
-# OAuth Demo by Clyde Balaman
+# OAuth Demo by Jan Millena J Villaflores
 
 ## Part 1: Setting up NodeJS environment
 ```bash
