@@ -1,4 +1,4 @@
-# OAuth Demo by Clyde Balaman
+# OAuth Demo by Jan Millena Villaflores
 
 ## Environment
 - [ ] Part 1: Setting up NodeJS environment
