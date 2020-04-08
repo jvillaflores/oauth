@@ -5,28 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Oauth Activity By Jan Millena Villaflores</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+
 </head>
 <body>
+    <nav>
+        <div class="nav-wrapper" style="padding-right: 15px;padding-left: 15px;">
+          <a href="/" class="brand-logo">MILYENA TV</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
     
-    <% if(user) { %>
-        <a href="/auth/logout">Logout</a>    
-        <br>
-        <% } else { %>
-        <a href="/auth/login">Login</a>
-        <br>
-        <% } %>
-        <a href="/">Homepage</a>
-        <br>
-        <a href="/profile">Profile</a>
-        <br>
-        <hr>
+                <% if(user) { %>
+                <li><a href="/auth/logout">Logout</a> </li>   
+                <% } else { %>
+                <li><a href="/auth/login">Login</a></li>
 
-    <h1>Welcome to your profile, <%= user._name %> </h1>    
-    <p>
-        extra information about you
-        <img src="<%= user._picture %>" alt="picture">
-        <p>This is your profile thumbnail</p>
-    </p>
+                <% } %>
+                <li><a href="/">Homepage</a></li>
+       
+                <!-- <li><a href="/profile">Profile</a></li> -->
+          </ul>
+        </div>
+    </nav>
+
+    <div class="row">
+        <div class="container" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-top: 2%; padding:10px 50px 40px 50px; display: block; margin-left: auto; margin-right: auto; width: 40%; ">
+            <h4 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;text-align: center;">Welcome to your profile, <br> <%= user._name %> </h4>    
+        
+        <img class="responsive-img" src="<%= user._picture %>" alt="picture" width="auto">
+        <p style="text-align:center;">Hello, <%= user._name %>, this is your account.</p>
+        </p>
+        </div>
+    </div>
+    
+
+
+
 
 </body>
 </html>

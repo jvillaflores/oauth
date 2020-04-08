@@ -1,42 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Oauth Activity By Jan Millena Villaflores</title>
-     <!-- Compiled and minified CSS -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Oauth Activity By Jan Millena Villaflores</title>
+   <!-- Compiled and minified CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-     <!-- Compiled and minified JavaScript -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   <!-- Compiled and minified JavaScript -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <style>
+       body {
+	      margin: 0;
+	      padding: 0;
+	      }
+
+
+#loader {
+  width: 10px;
+	height: 5px;
+	margin: 10px auto;
+	border-radius: 50px;
+	animation: cubic-bezier(.175, .885, .32, 1.275);
+  -webkit-animation: right 1s infinite ease-in-out;
+	-moz-animation: right 1s infinite ease-in-out;
+	animation: right 1s infinite ease-in-out;
+	background-color: #EF6E73;
+  
+}
+
+@-webkit-keyframes right {
+	0% {
+		-webkit-transform: translate(-150px);
+	}
+	50% {
+		-webkit-transform: translate(150px);
+	}
+	100% {
+		-webkit-transform: translate(-150px);
+	}
+}
+
+@-webkit-keyframes left {
+	0% {
+		-webkit-transform: translate(150px);
+	}
+	50% {
+		-webkit-transform: translate(-150px);
+	}
+	100% {
+		-webkit-transform: translate(150px);
+	}
+}
+
+@-moz-keyframes right {
+	0% {
+		-moz-transform: translate(-15px);
+	}
+	50% {
+		-moz-transform: translate(15px);
+	}
+	100% {
+		-moz-transform: translate(-15px);
+	}
+}
+
+@-moz-keyframes left {
+	0% {
+		-moz-transform: translate(15px);
+	}
+	50% {
+		-moz-transform: translate(-15px);
+	}
+	100% {
+		-moz-transform: translate(15px);
+	}
+}
+
+@keyframes right {
+	0% {
+		transform: translate(-15px);
+		height: 1em; width: 5em;
+	}
+	50% {
+		transform: translate(15px);
+		height: 2em; width: 2em;
+	}
+	100% {
+		transform: translate(-15px);
+		height: 1em; width: 5em;
+	}
+}
+
+@keyframes left {
+	0% {
+		transform: translate(15px);
+		height: 1em; width: 5em;
+	}
+	50% {
+		transform: translate(-15px);
+		 height: 2em; width: 2em;
+	}
+	100% {
+		transform: translate(15px);
+		height: 1em; width: 5em;
+	}
+}
+
+#myDiv {
+  display: none;
+  
+}
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:0px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:0px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+
+  </style>
+
 </head>
-<body>
-    
-    <!-- <% if(user) { %>
-    <a href="/auth/logout">Logout</a>    
-    <br>
-    <% } else { %>
-    <a href="/auth/login">Login</a>
-    <br>
-    <% } %>
-    <a href="/">Homepage</a>
-    <br>
-    <a href="/profile">Profile</a>
-    <br>
-    <hr> -->
 
-    <nav>
-        <div class="nav-wrapper" style="padding:15px,0px,15px,0px;">
-          <a href="/" class="brand-logo">HOMEPAGE</a>
+
+<body onload="myFunction()" style="margin:0;">
+  
+  <!--animate-->
+  <div style="margin-top: 50px;" id="loader"></div>
+    
+    <div id="myDiv" class="animate-bottom">
+
+  <nav>
+    <div class="nav-wrapper" style="padding-right: 15px;padding-left: 15px;">
+      <a href="/" class="brand-logo">MILYENA TV</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+    
+          <% if(user) { %>
+          <li><a href="/auth/logout">Logout</a> </li>   
+          <% } else { %>
+          <li><a href="/auth/login">Login</a></li>
+
+          <% } %>
+          <li><a href="/">Homepage</a></li>
+ 
+          <li><a href="/profile">Profile</a></li>
+        <!-- <% if(user) { %>
+        <a href="/auth/logout">Logout</a>    
+        <br>
+        <% } else { %>
+        <a href="/auth/login">LOGIN</a>
+        <br>
+        <% } %>
+        <a href="/">Homepage</a>
+        <br>
+        <a href="/profile">Profile</a>
+        <br>
+        <hr> -->
+      
+    <!-- <nav>
+        <div class="nav-wrapper" style="padding-right: 15px;padding-left: 15px;">
+          <a href="/" class="brand-logo">MILYENA TV</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="/auth/login">LOGIN</a></li>
-            <!-- <li><a href="/auth/logout">LOGOUT</a></li>
+            <li><a href="/auth/logout">LOGOUT</a></li>
             <li><a href="/profile">PROFILE</a></li> -->
             
           </ul>
         </div>
-      </nav>
+      </nav> 
+
+    <div class="row" style="padding-left: 120px;">
+   
+      <div class="container col s4" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-top: 5%; padding-top: 10px;">
+        <ul class="collapsible expandable">
+          <li>
+            <div class="collapsible-header"><i class="material-icons">favorite</i>CORONA VIRUS</div>
+            <div class="collapsible-body" style="text-align: justify;"><span>Coronavirus disease (COVID-19) is an infectious disease caused by a new virus.
+          The disease causes respiratory illness (like the flu) with symptoms such as a cough, fever, and in more severe cases, difficulty breathing. You can protect yourself by washing your hands frequently, avoiding touching your face, and avoiding close contact (1 meter or 3 feet) with people who are unwell..</span></div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">gesture</i>CORONA VIRUS OPINION</div>
+            <div class="collapsible-body" style="text-align: justify;"><span>We're currently experiencing a pandemic.
+            Wherein the whole world is suffering. Recently, President Duterte announced that the Enhanced Community Qurantine in Luzon will be extended till April 30, 2020. This just shows that the crisis is still not in control. I've noticed that there are a lot of people who are against to the plan of the president or the government, or are they just hating him for being different from the past president? I am sad and frustrated by what they've been doing. The government is doing something but some people are hard headed and just won't listen. I believe that if the people would just follow and coordinate with the government, the crisis in the Philippines would lessen. Based on what I have observed with the management of the Davao City Government, the crisis is now in control because of the disciplined people following the orders of the Government. I may not be able to share my ideas and frustration, I just want wish that this pandemic will end soon.</span></div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">whatshot</i>YOUTUBE</div>
+            <div class="collapsible-body"><span><a href="https://www.youtube.com/channel/UCcEWUrRUlS7XnH4hxVRTB8A?view_as=subscriber." target="_blank">MILYENA TV</a></span></div>
+          </li>
+        </ul>
+      </div> <!--container1-->
+
+      <div class="container col s6" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-top: 5%; padding: 20px; margin-left: 50px;">
+
+        <div class="row">
+          <div class="col s12 m3 center-on-small-only">
+          <img src="http://localhost/finals-oauth/oauth/images/a.jpg" alt="milyena tv" style="width: 150px; border-radius: 100%">
+          </div>
+          <div class="col s12 m9">
+            <h4>MILYENA TV</h4>
+            <p style="text-align: justify;"> Milyena TV is a Youtube Channel handled by Jan Millena Villaflores that contains random contents. She created this channel to share her hobbies and random activities when bored. </p>
+          </div>
+
+        </div><!--row-->
+
+
+      </div> <!--container2-->
+
+
+    </div ><!--row-->
+
+
+
+
+    <!--script-->
+     <script type="text/javascript">
+        var elem = document.querySelector('.collapsible.expandable');
+        var instance = M.Collapsible.init(elem, {
+        accordion: false
+        });
+     </script>
+      
+      <script>
+        var myVar;
+        
+        function myFunction() {
+          myVar = setTimeout(showPage, 3000);
+        }
+        
+        function showPage() {
+          document.getElementById("loader").style.display = "none";
+          document.getElementById("myDiv").style.display = "block";
+        }
+        </script>
+
+
 
 </body>
 </html>

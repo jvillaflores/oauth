@@ -2,23 +2,205 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Oauth Activity By Jan Millena Villaflores</title>
+   <!-- Compiled and minified CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <!-- Compiled and minified JavaScript -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+     <style>
+       body {
+	      margin: 0;
+	      padding: 0;
+	      }
+
+
+#loader {
+  width: 10px;
+	height: 5px;
+	margin: 10px auto;
+	border-radius: 50px;
+	animation: cubic-bezier(.175, .885, .32, 1.275);
+  -webkit-animation: right 1s infinite ease-in-out;
+	-moz-animation: right 1s infinite ease-in-out;
+	animation: right 1s infinite ease-in-out;
+	background-color: #EF6E73;
+  
+}
+
+@-webkit-keyframes right {
+	0% {
+		-webkit-transform: translate(-150px);
+	}
+	50% {
+		-webkit-transform: translate(150px);
+	}
+	100% {
+		-webkit-transform: translate(-150px);
+	}
+}
+
+@-webkit-keyframes left {
+	0% {
+		-webkit-transform: translate(150px);
+	}
+	50% {
+		-webkit-transform: translate(-150px);
+	}
+	100% {
+		-webkit-transform: translate(150px);
+	}
+}
+
+@-moz-keyframes right {
+	0% {
+		-moz-transform: translate(-15px);
+	}
+	50% {
+		-moz-transform: translate(15px);
+	}
+	100% {
+		-moz-transform: translate(-15px);
+	}
+}
+
+@-moz-keyframes left {
+	0% {
+		-moz-transform: translate(15px);
+	}
+	50% {
+		-moz-transform: translate(-15px);
+	}
+	100% {
+		-moz-transform: translate(15px);
+	}
+}
+
+@keyframes right {
+	0% {
+		transform: translate(-15px);
+		height: 1em; width: 5em;
+	}
+	50% {
+		transform: translate(15px);
+		height: 2em; width: 2em;
+	}
+	100% {
+		transform: translate(-15px);
+		height: 1em; width: 5em;
+	}
+}
+
+@keyframes left {
+	0% {
+		transform: translate(15px);
+		height: 1em; width: 5em;
+	}
+	50% {
+		transform: translate(-15px);
+		 height: 2em; width: 2em;
+	}
+	100% {
+		transform: translate(15px);
+		height: 1em; width: 5em;
+	}
+}
+
+#myDiv {
+  display: none;
+  
+}
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:0px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:0px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+
+  </style>
 </head>
-<body>
-    <% if(user) { %>
-    <a href="/auth/logout">Logout</a>    
-    <br>
-    <% } else { %>
-    <a href="/auth/login">Login</a>
-    <br>
-    <% } %>
-    <a href="/">Homepage</a>
-    <br>
-    <a href="/profile">Profile</a>
-    <br>
-    <hr>
-    <a href="/auth/google">Login using Google+</a>
+<body onload="myFunction()" style="margin:0;">
+    <!--animate-->
+  <div style="margin-top: 50px;" id="loader"></div>
+    
+  <div id="myDiv" class="animate-bottom">
+
+    <nav>
+        <div class="nav-wrapper" style="padding-right: 15px;padding-left: 15px;">
+          <a href="/" class="brand-logo">MILYENA TV</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <!-- <li><a href="/auth/login">LOGIN</a></li> -->
+            <!-- <li><a href="/auth/logout">LOGOUT</a></li>
+            <li><a href="/profile">PROFILE</a></li> -->
+            
+          
+        <!-- <% 
+        if(user)
+        { %>
+            <a href="/auth/logout">Logout</a>    
+            <br>
+        <% } 
+        
+        else { %>
+        <a href="/auth/login">LOGIN</a>
+        <br>
+        <% } %> -->
+        <!-- <a href="/">Homepage</a>
+        <br>
+        <a href="/profile">Profile</a>
+        <br>
+        <hr>
+        <a href="/auth/google">Login using Google+</a>
+        </ul> -->
+        </div>
+    </nav>
+
+        <div class="row">
+            <div class="container" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-top: 5%; padding-top: 10px; padding-bottom: 40px; display: block; margin-left: auto; margin-right: auto; width: 40%; ">
+
+              <h5 style="text-align: center">Log In to Milyena TV with: </h5>
+
+                <a class="waves-effect waves-light btn"style="background-color: #D3482C; display: block; margin-left: auto; margin-right: auto; width: 45%" href="/auth/google">
+                    <i class="fab fa-google"style="padding-right: 10px;"></i>LOGIN USING GOOGLE+</a>
+            </div>
+
+
+        </div>
+        
+    <!--script-->
+    <script>
+        var myVar;
+        
+        function myFunction() {
+          myVar = setTimeout(showPage, 3000);
+        }
+        
+        function showPage() {
+          document.getElementById("loader").style.display = "none";
+          document.getElementById("myDiv").style.display = "block";
+        }
+        </script>
+
+
+
 </body>
 </html>
